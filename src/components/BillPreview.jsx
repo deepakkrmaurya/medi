@@ -136,7 +136,7 @@ const BillPreview = ({ bill, user, onClose }) => {
 
   const { subtotal, totalDiscount, taxAmount, total } = calculateTotals();
 
-  // Convert amount to words
+  // Convert amount to words - FIXED VERSION
   const convertToWords = (amount) => {
     if (amount === 0) return 'Zero Rupees Only';
     
@@ -152,7 +152,7 @@ const BillPreview = ({ bill, user, onClose }) => {
       return units[Math.floor(num / 100)] + ' Hundred' + (num % 100 !== 0 ? ' and ' + convertLessThanThousand(num % 100) : '');
     };
 
-    const rupees = Math.floor(amount);
+    let rupees = Math.floor(amount); // Changed from const to let
     const paise = Math.round((amount - rupees) * 100);
     
     let words = '';
