@@ -197,19 +197,20 @@ const Billing = () => {
 
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-center">
+       <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-3 lg:gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
+          <h1 className="text-xl lg:text-3xl font-bold text-gray-900 dark:text-white">
             Billing System
           </h1>
-          <p className="text-gray-600 dark:text-gray-400 mt-2">
+          <p className="text-sm lg:text-base text-gray-600 dark:text-gray-400 mt-1">
             Create bills and manage customer transactions
           </p>
         </div>
-        <div className="text-sm text-gray-500 dark:text-gray-400">
+        <div className="text-xs lg:text-sm text-gray-500 dark:text-gray-400 bg-gray-100 dark:bg-gray-700 px-3 py-1 rounded-lg">
           Bill No: {generateBillNo()}
         </div>
       </div>
+
 
       <AnimatePresence>
         {billGenerated && (

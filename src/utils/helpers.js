@@ -11,14 +11,19 @@ export const formatDateTime = (date) => {
 };
 
 export const formatCurrency = (amount) => {
-  if (amount === null || amount === undefined) return '₹0.00';
-  return new Intl.NumberFormat('en-IN', {
-    style: 'currency',
-    currency: 'INR',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2
-  }).format(amount);
+  if (amount === null || amount === undefined || isNaN(amount)) return '₹0';
+  
+  if (amount >= 10000000) {
+    return `₹${(amount / 10000000).toFixed(1)}Cr`; // Crore
+  } else if (amount >= 100000) {
+    return `₹${(amount / 100000).toFixed(1)}L`; // Lakh
+  } else if (amount >= 1000) {
+    return `₹${(amount / 1000).toFixed(1)}K`; // Thousand
+  } else {
+    return `₹${amount}`; // Less than 1000
+  }
 };
+
 
 export const generateInvoiceNumber = () => {
   const timestamp = Date.now().toString().slice(-6);

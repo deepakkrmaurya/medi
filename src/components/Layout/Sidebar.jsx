@@ -37,17 +37,15 @@ const Sidebar = () => {
 
   return (
     <div 
-      className={`hidden lg:flex flex-col bg-[#F09F0D] dark:bg-gray-800 shadow-sm h-full transition-all duration-300 ${
+      className={`hidden lg:flex flex-col bg-primary-600 dark:bg-gray-800 shadow-sm h-full transition-all duration-300 ${
         isCollapsed ? 'w-16' : 'w-64'
       }`}
     >
       {/* Logo and Toggle Button */}
-      <div className="flex items-center justify-between p-4  border-gray-200 dark:border-gray-700">
+      <div className="flex items-center justify-between p-4 border-gray-200 dark:border-gray-700">
         {!isCollapsed && (
-          <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-              <Pill className="text-white" size={20} />
-            </div>
+          <div className="ml-20 text-lg font-bold">
+            <Pill className="text-white" size={30} />
           </div>
         )}
         
@@ -70,14 +68,21 @@ const Sidebar = () => {
             <Link
               key={item.path}
               to={item.path}
-              className={`flex items-center space-x-3 px-3 py-3 rounded-lg transition-colors duration-200 group ${
+              className={`flex items-center space-x-3 rounded-lg transition-colors duration-200 group text-white ${
                 active
-                  ? 'bg-white dark:bg-gray-700 text-gray-900 dark:text-white shadow-sm'
+                  ? 'bg-gray-900 dark:bg-gray-700 text-gray-900 dark:text-gray-900 shadow-sm'
                   : 'text-gray-700 dark:text-gray-300 hover:bg-white dark:hover:bg-gray-700 hover:text-gray-900 dark:hover:text-white'
-              } ${isCollapsed ? 'justify-center' : ''}`}
+              } ${
+                isCollapsed 
+                  ? 'justify-center p-2' 
+                  : 'px-3 py-3'
+              }`}
               title={isCollapsed ? item.label : ''}
             >
-              <Icon size={25} />
+              <Icon 
+                size={isCollapsed ? 20 : 25} 
+                className={isCollapsed ? '' : ''}
+              />
               {!isCollapsed && (
                 <span className="font-medium">{item.label}</span>
               )}
@@ -95,17 +100,17 @@ const Sidebar = () => {
 
       {/* User Info and Logout */}
       <div className="p-4 border-t border-gray-200 dark:border-gray-700 space-y-3">
-        
-
         {/* Logout Button */}
         <button
           onClick={logout}
-          className={`flex items-center space-x-3 w-full px-3 py-3 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900 rounded-lg transition-colors duration-200 group ${
-            isCollapsed ? 'justify-center' : ''
+          className={`flex items-center space-x-3 w-full text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-900 rounded-lg transition-colors duration-200 group ${
+            isCollapsed 
+              ? 'justify-center p-2' 
+              : 'px-3 py-3'
           }`}
           title={isCollapsed ? 'Logout' : ''}
         >
-          <LogOut size={20} />
+          <LogOut size={isCollapsed ? 18 : 20} />
           {!isCollapsed && (
             <span className="font-medium">Logout</span>
           )}

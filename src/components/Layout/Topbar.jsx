@@ -37,7 +37,7 @@ const Topbar = () => {
   };
 
   return (
-    <header className="bg-[#F09F0D] dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
+    <header className="bg-primary-600 dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
       <div className="flex items-center justify-end px-4 sm:px-6 py-3 sm:py-4">
         
 

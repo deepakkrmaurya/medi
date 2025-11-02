@@ -127,43 +127,42 @@ const Medicines = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">
-            Medicine Management
-          </h1>
-         
-        </div>
-        <div className="flex items-center space-x-3">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={exportMedicines}
-            className="flex items-center space-x-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
-          >
-            <Download size={20} />
-            <span>Export</span>
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={fetchMedicines}
-            className="flex items-center space-x-2 px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700"
-          >
-            <RefreshCw size={20} />
-            <span>Refresh</span>
-          </motion.button>
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            onClick={() => setShowForm(true)}
-            className="bg-primary-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 hover:bg-primary-700"
-          >
-            <Plus size={20} />
-            <span>Add Medicine</span>
-          </motion.button>
-        </div>
-      </div>
+<div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+  <div>
+    <h1 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
+      Medicine Management
+    </h1>
+  </div>
+  <div className="flex items-center space-x-2 sm:space-x-3 w-full sm:w-auto">
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={exportMedicines}
+      className="flex items-center space-x-1 sm:space-x-2 px-3 py-2 sm:px-4 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm sm:text-base"
+    >
+      <Download size={18} className="sm:w-5 sm:h-5" />
+      <span className="hidden xs:inline">Export</span>
+    </motion.button>
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={fetchMedicines}
+      className="flex items-center space-x-1 sm:space-x-2 px-3 py-2 sm:px-4 sm:py-2 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 text-sm sm:text-base"
+    >
+      <RefreshCw size={18} className="sm:w-5 sm:h-5" />
+      <span className="hidden xs:inline">Refresh</span>
+    </motion.button>
+    <motion.button
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+      onClick={() => setShowForm(true)}
+      className="bg-primary-600 text-white px-3 py-2 sm:px-4 sm:py-2 rounded-lg flex items-center space-x-1 sm:space-x-2 hover:bg-primary-700 text-sm sm:text-base flex-1 sm:flex-none justify-center"
+    >
+      <Plus size={18} className="sm:w-5 sm:h-5" />
+      <span>Add Medicine</span>
+    </motion.button>
+  </div>
+</div>
 
       {/* Filters */}
       <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
